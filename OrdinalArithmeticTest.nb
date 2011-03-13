@@ -1,0 +1,1053 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     40260,       1044]
+NotebookOptionsPosition[     39764,       1021]
+NotebookOutlinePosition[     40104,       1036]
+CellTagsIndexPosition[     40061,       1033]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Tests for OrdinalArithmeticPackage\
+\>", "Title",
+ CellChangeTimes->{{3.508999358804851*^9, 3.508999370258422*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Case table", "Section",
+ CellChangeTimes->{{3.508999392356732*^9, 3.508999399009686*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testOrdinals", "=", 
+   RowBox[{"{", 
+    RowBox[{"ReleaseHold", "[", 
+     RowBox[{"MakeOrdinal", "/@", 
+      RowBox[{"Hold", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"0", "+", "0"}], ",", 
+        SuperscriptBox["0", "7"], ",", 
+        RowBox[{"0", "+", 
+         SuperscriptBox["4", "2"]}], ",", 
+        RowBox[{"2", "\[Omega]"}], ",", 
+        RowBox[{"\[Omega]", " ", "2"}], ",", 
+        RowBox[{"4", "+", "\[Omega]"}], ",", 
+        SuperscriptBox["\[Omega]", 
+         RowBox[{"4", "+", "\[Omega]", "+", "5", "+", "6"}]], ",", 
+        RowBox[{"4", "+", "5"}], ",", 
+        RowBox[{"4", "+", 
+         RowBox[{"\[Omega]", " ", "5"}], "+", 
+         RowBox[{"\[Omega]", " ", "6"}]}], ",", 
+        RowBox[{
+         SuperscriptBox["\[Omega]", "5"], "+", 
+         SuperscriptBox["\[Omega]", "6"]}], ",", 
+        RowBox[{"5", "+", "\[Omega]", "+", 
+         SuperscriptBox["\[Omega]", "4"], "+", "\[Omega]", "+", "\[Omega]", 
+         "+", "3", "+", "\[Omega]", "+", "6"}], ",", 
+        RowBox[{
+         SuperscriptBox["\[Omega]", "6"], "+", "5", "+", 
+         SuperscriptBox["\[Omega]", "\[Omega]"]}], ",", 
+        RowBox[{
+         SuperscriptBox["\[Omega]", "1"], "+", 
+         SuperscriptBox["\[Omega]", 
+          RowBox[{"2", "+", "\[Omega]"}]]}], ",", 
+        RowBox[{
+         SuperscriptBox["\[Omega]", "1"], "+", 
+         SuperscriptBox["\[Omega]", 
+          RowBox[{"\[Omega]", "+", "2"}]]}]}], 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"doesn", "'"}], "t", " ", "work", " ", "yet"}], ",", " ", 
+         RowBox[{"exponents", " ", 
+          RowBox[{"can", "'"}], "t", " ", "be", " ", "compared", " ", "yet", 
+          " ", "because", " ", "we", " ", "have", " ", "no", " ", 
+          "assumptions", " ", "about", " ", "CNF", " ", "for", " ", 
+          "comparability"}]}], "*)"}], "]"}]}], "]"}], "}"}]}], ";", 
+  RowBox[{"TableForm", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"#", ",", 
+       RowBox[{"OrdinalZeroQ", "[", "#", "]"}], ",", 
+       RowBox[{"OrdinalSimplify", "[", "#", "]"}], ",", 
+       RowBox[{"#", "//", "FullForm"}]}], "}"}], "&"}], "/@", 
+    "testOrdinals"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.508995442692971*^9, 3.5089954563448057`*^9}, {
+  3.508996814326943*^9, 3.50899681952632*^9}, {3.508996984501507*^9, 
+  3.508996987400255*^9}, {3.5089971167013693`*^9, 3.508997117092896*^9}, {
+  3.5089978869377403`*^9, 3.508997887558724*^9}, {3.50899941506059*^9, 
+  3.508999416297454*^9}, {3.509026018551949*^9, 3.50902601881734*^9}, {
+  3.5090261015993853`*^9, 3.509026109793961*^9}, {3.509031845890188*^9, 
+  3.509031858668947*^9}, {3.5090321899916162`*^9, 3.509032222931975*^9}, {
+  3.509032546191654*^9, 3.509032586589113*^9}, {3.5090337487001534`*^9, 
+  3.509033751922696*^9}, {3.509033916837275*^9, 3.509033916995839*^9}, {
+  3.5090342408908243`*^9, 3.5090342899445343`*^9}, {3.509034331431917*^9, 
+  3.509034331724169*^9}, {3.509034918906084*^9, 3.509034945856244*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Pick", "::", "incomp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Expressions \[NoBreak]\\!\\({\\*InterpretationBox[\\(\
+\[LeftAngleBracket] \\(\\(\\*InterpretationBox[\\\"\[Omega]\\\", \
+OA[\\\\[Omega]]]\\^\\*InterpretationBox[\\\"1\\\", OA[1]]\\)\\) \
+\[RightAngleBracket]\\), OP[OA[\\\\[Omega]], OA[1]]], \
+\\*InterpretationBox[\\(\[LeftAngleBracket] \\(\\(\\*InterpretationBox[\\\"\
+\[Omega]\\\", OA[\\\\[Omega]]]\\^\\*InterpretationBox[\\(\[LeftAngleBracket] \
+\\(\\(\\*TemplateBox[List[InterpretationBox[\\\"\\\\[Omega]\\\", \
+OA[\\\\[Omega]]], InterpretationBox[\\\"2\\\", OA[2]]], \\\"Row\\\", \
+Rule[DisplayFunction, Function[RowBox[List[Slot[1], \\\"+\\\", Slot[2]]]]], \
+Rule[InterpretationFunction, Function[RowBox[List[\\\"Row\\\", \\\"[\\\", \
+RowBox[List[RowBox[List[\\\"{\\\", RowBox[List[Slot[1], \\\",\\\", Slot[2]]], \
+\\\"}\\\"]], \\\",\\\", \\\"\\\\\\\"+\\\\\\\"\\\"]], \\\"]\\\"]]]]]\\)\\) \
+\[RightAngleBracket]\\), OS[OA[\\\\[Omega]], OA[2]]]\\)\\) \
+\[RightAngleBracket]\\), OP[OA[\\\\[Omega]], OS[OA[\\\\[Omega]], OA[2]]]]}\\)\
+\[NoBreak] and \[NoBreak]\\!\\({\\(\\(! \
+\\(\\(OrdinalLess[\\(\\(\\*InterpretationBox[\\\"1\\\", OA[1]], \
+\\*InterpretationBox[\\(\[LeftAngleBracket] \
+\\(\\(\\*TemplateBox[List[InterpretationBox[\\\"\\\\[Omega]\\\", \
+OA[\\\\[Omega]]], InterpretationBox[\\\"2\\\", OA[2]]], \\\"Row\\\", \
+Rule[DisplayFunction, Function[RowBox[List[Slot[1], \\\"+\\\", Slot[2]]]]], \
+Rule[InterpretationFunction, Function[RowBox[List[\\\"Row\\\", \\\"[\\\", \
+RowBox[List[RowBox[List[\\\"{\\\", RowBox[List[Slot[1], \\\",\\\", Slot[2]]], \
+\\\"}\\\"]], \\\",\\\", \\\"\\\\\\\"+\\\\\\\"\\\"]], \\\"]\\\"]]]]]\\)\\) \
+\[RightAngleBracket]\\), OS[OA[\\\\[Omega]], OA[2]]]\\)\\)]\\)\\)\\)\\), \
+True}\\)\[NoBreak] have incompatible shapes. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/Pick\\\", ButtonNote -> \\\"Pick::incomp\\\"]\\)\"\
+\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.5090325873337727`*^9, {3.5090337251722803`*^9, 3.5090337526998997`*^9}, {
+   3.509033912254361*^9, 3.509033939785069*^9}, 3.509034075604393*^9, {
+   3.509034236530177*^9, 3.509034290217753*^9}, 3.509034332117592*^9, 
+   3.5090347708654118`*^9, 3.509034947397717*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox["0",
+      $CellContext`OA[0]], "True", 
+     InterpretationBox["0",
+      $CellContext`OA[0]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OA", "[", "0", "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["0", 
+          $CellContext`OA[0]],InterpretationBox["0", 
+          $CellContext`OA[0]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[0], 
+       $CellContext`OA[0]]], "True", 
+     InterpretationBox["0",
+      $CellContext`OA[0]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "0", "]"}], ",", 
+         RowBox[{"OA", "[", "0", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["0",
+         $CellContext`OA[0]], 
+        InterpretationBox["7",
+         $CellContext`OA[7]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[0], 
+       $CellContext`OA[7]]], "True", 
+     InterpretationBox["0",
+      $CellContext`OA[0]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OP", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "0", "]"}], ",", 
+         RowBox[{"OA", "[", "7", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["0", 
+          $CellContext`OA[0]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["4", 
+              $CellContext`OA[4]], 
+             InterpretationBox["2", 
+              $CellContext`OA[2]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[4], 
+           $CellContext`OA[2]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[0], 
+       $CellContext`OP[
+        $CellContext`OA[4], 
+        $CellContext`OA[2]]]], "False", 
+     InterpretationBox["16",
+      $CellContext`OA[16]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "0", "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "4", "]"}], ",", 
+           RowBox[{"OA", "[", "2", "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["2", 
+          $CellContext`OA[2]],InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "\[CenterDot]", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OT[
+       $CellContext`OA[2], 
+       $CellContext`OA[$CellContext`\[Omega]]]], "False", 
+     InterpretationBox["\[Omega]",
+      $CellContext`OA[$CellContext`\[Omega]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OT", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "2", "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["2", 
+          $CellContext`OA[2]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "\[CenterDot]", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OT[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[2]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["2", 
+          $CellContext`OA[2]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "\[CenterDot]", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OT[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[2]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OT", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OA", "[", "2", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["4", 
+          $CellContext`OA[4]],InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[4], 
+       $CellContext`OA[$CellContext`\[Omega]]]], "False", 
+     InterpretationBox["\[Omega]",
+      $CellContext`OA[$CellContext`\[Omega]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "4", "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]], 
+        InterpretationBox[
+         RowBox[{"\[LeftAngleBracket]", 
+          TemplateBox[{InterpretationBox["4", 
+             $CellContext`OA[4]],InterpretationBox["\[Omega]", 
+             $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["5", 
+             $CellContext`OA[5]],InterpretationBox["6", 
+             $CellContext`OA[6]]},
+           "Row",
+           DisplayFunction->(RowBox[{#, "+", #2, "+", #3, "+", #4}]& ),
+           InterpretationFunction->(RowBox[{"Row", "[", 
+              RowBox[{
+                RowBox[{"{", 
+                  RowBox[{#, ",", #2, ",", #3, ",", #4}], "}"}], ",", 
+                "\"+\""}], "]"}]& )], "\[RightAngleBracket]"}],
+         $CellContext`OS[
+          $CellContext`OA[4], 
+          $CellContext`OA[$CellContext`\[Omega]], 
+          $CellContext`OA[5], 
+          $CellContext`OA[6]]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OS[
+        $CellContext`OA[4], 
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[5], 
+        $CellContext`OA[6]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]], 
+        InterpretationBox[
+         RowBox[{"\[LeftAngleBracket]", 
+          TemplateBox[{InterpretationBox["\[Omega]", 
+             $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["6", 
+             $CellContext`OA[6]]},
+           "Row",
+           DisplayFunction->(RowBox[{#, "+", #2}]& ),
+           InterpretationFunction->(RowBox[{"Row", "[", 
+              RowBox[{
+                RowBox[{"{", 
+                  RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+          "\[RightAngleBracket]"}],
+         $CellContext`OS[
+          $CellContext`OA[$CellContext`\[Omega]], 
+          $CellContext`OA[6]]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OS[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[6]]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OP", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OS", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "4", "]"}], ",", 
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "5", "]"}], ",", 
+           RowBox[{"OA", "[", "6", "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["4", 
+          $CellContext`OA[4]],InterpretationBox["5", 
+          $CellContext`OA[5]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[4], 
+       $CellContext`OA[5]]], "False", 
+     InterpretationBox["5",
+      $CellContext`OA[5]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "4", "]"}], ",", 
+         RowBox[{"OA", "[", "5", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["4", 
+          $CellContext`OA[4]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            TemplateBox[{
+              InterpretationBox["\[Omega]", 
+               $CellContext`OA[$CellContext`\[Omega]]], 
+              InterpretationBox["5", 
+               $CellContext`OA[5]]}, "Row", 
+             DisplayFunction -> (RowBox[{#, "\[CenterDot]", #2}]& ), 
+             InterpretationFunction -> (RowBox[{"Row", "[", 
+                RowBox[{
+                  RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+                "]"}]& )], "\[RightAngleBracket]"}], 
+          $CellContext`OT[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[5]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            TemplateBox[{
+              InterpretationBox["\[Omega]", 
+               $CellContext`OA[$CellContext`\[Omega]]], 
+              InterpretationBox["6", 
+               $CellContext`OA[6]]}, "Row", 
+             DisplayFunction -> (RowBox[{#, "\[CenterDot]", #2}]& ), 
+             InterpretationFunction -> (RowBox[{"Row", "[", 
+                RowBox[{
+                  RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+                "]"}]& )], "\[RightAngleBracket]"}], 
+          $CellContext`OT[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[6]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2, "+", #3}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"+\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[4], 
+       $CellContext`OT[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[5]], 
+       $CellContext`OT[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[6]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["6", 
+          $CellContext`OA[6]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "\[CenterDot]", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OT[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[6]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "4", "]"}], ",", 
+         RowBox[{"OT", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "5", "]"}]}], "]"}], ",", 
+         RowBox[{"OT", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "6", "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["5", 
+              $CellContext`OA[5]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[5]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["6", 
+              $CellContext`OA[6]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[6]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[5]], 
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[6]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]], 
+        InterpretationBox["6",
+         $CellContext`OA[6]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[6]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "5", "]"}]}], "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "6", "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox["5", 
+          $CellContext`OA[5]],InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["4", 
+              $CellContext`OA[4]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[4]]],InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox[
+         "\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["3", 
+          $CellContext`OA[3]],InterpretationBox["\[Omega]", 
+          $CellContext`OA[$CellContext`\[Omega]]],InterpretationBox["6", 
+          $CellContext`OA[6]]},
+        "Row",
+        DisplayFunction->(
+         RowBox[{#, "+", #2, "+", #3, "+", #4, "+", #5, "+", #6, "+", #7, 
+           "+", #8}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               
+               RowBox[{#, ",", #2, ",", #3, ",", #4, ",", #5, ",", #6, 
+                 ",", #7, ",", #8}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OA[5], 
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[4]], 
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[3], 
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[6]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["4", 
+              $CellContext`OA[4]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[4]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            TemplateBox[{
+              InterpretationBox["\[Omega]", 
+               $CellContext`OA[$CellContext`\[Omega]]], 
+              InterpretationBox["3", 
+               $CellContext`OA[3]]}, "Row", 
+             DisplayFunction -> (RowBox[{#, "\[CenterDot]", #2}]& ), 
+             InterpretationFunction -> (RowBox[{"Row", "[", 
+                RowBox[{
+                  RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"\[CenterDot]\""}], 
+                "]"}]& )], "\[RightAngleBracket]"}], 
+          $CellContext`OT[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[3]]],InterpretationBox["6", 
+          $CellContext`OA[6]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2, "+", #3}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"+\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[4]], 
+       $CellContext`OT[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[3]], 
+       $CellContext`OA[6]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OA", "[", "5", "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "4", "]"}]}], "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OA", "[", "3", "]"}], ",", 
+         RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+         RowBox[{"OA", "[", "6", "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["6", 
+              $CellContext`OA[6]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[6]]],InterpretationBox["5", 
+          $CellContext`OA[5]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]]], 
+            "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[$CellContext`\[Omega]]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2, "+", #3}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2, ",", #3}], "}"}], ",", "\"+\""}], 
+           "]"}]& )], "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[6]], 
+       $CellContext`OA[5], 
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[$CellContext`\[Omega]]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]], 
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[$CellContext`\[Omega]]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "6", "]"}]}], "]"}], ",", 
+         RowBox[{"OA", "[", "5", "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "\\[Omega]", "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["1", 
+              $CellContext`OA[1]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[1]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox[
+              RowBox[{"\[LeftAngleBracket]", 
+                TemplateBox[{
+                  InterpretationBox["2", 
+                   $CellContext`OA[2]], 
+                  InterpretationBox["\[Omega]", 
+                   $CellContext`OA[$CellContext`\[Omega]]]}, "Row", 
+                 DisplayFunction -> (RowBox[{#, "+", #2}]& ), 
+                 InterpretationFunction -> (RowBox[{"Row", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+                "\[RightAngleBracket]"}], 
+              $CellContext`OS[
+               $CellContext`OA[2], 
+               $CellContext`OA[$CellContext`\[Omega]]]]], 
+            "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OS[
+            $CellContext`OA[2], 
+            $CellContext`OA[$CellContext`\[Omega]]]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[1]], 
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OS[
+         $CellContext`OA[2], 
+         $CellContext`OA[$CellContext`\[Omega]]]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       SuperscriptBox[
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]], 
+        InterpretationBox["\[Omega]",
+         $CellContext`OA[$CellContext`\[Omega]]]], "\[RightAngleBracket]"}],
+      $CellContext`OP[
+       $CellContext`OA[$CellContext`\[Omega]], 
+       $CellContext`OA[$CellContext`\[Omega]]]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "1", "]"}]}], "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OS", "[", 
+            RowBox[{
+             RowBox[{"OA", "[", "2", "]"}], ",", 
+             RowBox[{"OA", "[", "\\[Omega]", "]"}]}], "]"}]}], "]"}]}], "]"}],
+       
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]},
+    {
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox["1", 
+              $CellContext`OA[1]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[1]]],InterpretationBox[
+          RowBox[{"\[LeftAngleBracket]", 
+            SuperscriptBox[
+             InterpretationBox["\[Omega]", 
+              $CellContext`OA[$CellContext`\[Omega]]], 
+             InterpretationBox[
+              RowBox[{"\[LeftAngleBracket]", 
+                TemplateBox[{
+                  InterpretationBox["\[Omega]", 
+                   $CellContext`OA[$CellContext`\[Omega]]], 
+                  InterpretationBox["2", 
+                   $CellContext`OA[2]]}, "Row", 
+                 DisplayFunction -> (RowBox[{#, "+", #2}]& ), 
+                 InterpretationFunction -> (RowBox[{"Row", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+                "\[RightAngleBracket]"}], 
+              $CellContext`OS[
+               $CellContext`OA[$CellContext`\[Omega]], 
+               $CellContext`OA[2]]]], "\[RightAngleBracket]"}], 
+          $CellContext`OP[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OS[
+            $CellContext`OA[$CellContext`\[Omega]], 
+            $CellContext`OA[2]]]]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OA[1]], 
+       $CellContext`OP[
+        $CellContext`OA[$CellContext`\[Omega]], 
+        $CellContext`OS[
+         $CellContext`OA[$CellContext`\[Omega]], 
+         $CellContext`OA[2]]]]], "False", 
+     InterpretationBox[
+      RowBox[{"\[LeftAngleBracket]", 
+       TemplateBox[{RowBox[{"{", 
+           RowBox[{
+             InterpretationBox[
+              RowBox[{"\[LeftAngleBracket]", 
+                SuperscriptBox[
+                 InterpretationBox["\[Omega]", 
+                  $CellContext`OA[$CellContext`\[Omega]]], 
+                 InterpretationBox["1", 
+                  $CellContext`OA[1]]], "\[RightAngleBracket]"}], 
+              $CellContext`OP[
+               $CellContext`OA[$CellContext`\[Omega]], 
+               $CellContext`OA[1]]], ",", 
+             InterpretationBox[
+              RowBox[{"\[LeftAngleBracket]", 
+                SuperscriptBox[
+                 InterpretationBox["\[Omega]", 
+                  $CellContext`OA[$CellContext`\[Omega]]], 
+                 InterpretationBox[
+                  RowBox[{"\[LeftAngleBracket]", 
+                    TemplateBox[{
+                    InterpretationBox["\[Omega]", 
+                    $CellContext`OA[$CellContext`\[Omega]]], 
+                    InterpretationBox["2", 
+                    $CellContext`OA[2]]}, "Row", 
+                    DisplayFunction -> (RowBox[{#, "+", #2}]& ), 
+                    InterpretationFunction -> (RowBox[{"Row", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+                    "\[RightAngleBracket]"}], 
+                  $CellContext`OS[
+                   $CellContext`OA[$CellContext`\[Omega]], 
+                   $CellContext`OA[2]]]], "\[RightAngleBracket]"}], 
+              $CellContext`OP[
+               $CellContext`OA[$CellContext`\[Omega]], 
+               $CellContext`OS[
+                $CellContext`OA[$CellContext`\[Omega]], 
+                $CellContext`OA[2]]]]}], "}"}],RowBox[{"{", 
+           RowBox[{
+             RowBox[{"!", 
+               RowBox[{"OrdinalLess", "[", 
+                 RowBox[{
+                   InterpretationBox["1", 
+                    $CellContext`OA[1]], ",", 
+                   InterpretationBox[
+                    RowBox[{"\[LeftAngleBracket]", 
+                    TemplateBox[{
+                    InterpretationBox["\[Omega]", 
+                    $CellContext`OA[$CellContext`\[Omega]]], 
+                    InterpretationBox["2", 
+                    $CellContext`OA[2]]}, "Row", 
+                    DisplayFunction -> (RowBox[{#, "+", #2}]& ), 
+                    InterpretationFunction -> (RowBox[{"Row", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+                    "\[RightAngleBracket]"}], 
+                    $CellContext`OS[
+                    $CellContext`OA[$CellContext`\[Omega]], 
+                    $CellContext`OA[2]]]}], "]"}]}], ",", "True"}], "}"}]},
+        "Row",
+        DisplayFunction->(RowBox[{#, "+", #2}]& ),
+        InterpretationFunction->(RowBox[{"Row", "[", 
+           RowBox[{
+             RowBox[{"{", 
+               RowBox[{#, ",", #2}], "}"}], ",", "\"+\""}], "]"}]& )], 
+       "\[RightAngleBracket]"}],
+      $CellContext`OS[{
+        $CellContext`OP[
+         $CellContext`OA[$CellContext`\[Omega]], 
+         $CellContext`OA[1]], 
+        $CellContext`OP[
+         $CellContext`OA[$CellContext`\[Omega]], 
+         $CellContext`OS[
+          $CellContext`OA[$CellContext`\[Omega]], 
+          $CellContext`OA[2]]]}, {
+        Not[
+         $CellContext`OrdinalLess[
+          $CellContext`OA[1], 
+          $CellContext`OS[
+           $CellContext`OA[$CellContext`\[Omega]], 
+           $CellContext`OA[2]]]], True}]], 
+     TagBox[
+      StyleBox[
+       RowBox[{"OS", "[", 
+        RowBox[{
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OA", "[", "1", "]"}]}], "]"}], ",", 
+         RowBox[{"OP", "[", 
+          RowBox[{
+           RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+           RowBox[{"OS", "[", 
+            RowBox[{
+             RowBox[{"OA", "[", "\\[Omega]", "]"}], ",", 
+             RowBox[{"OA", "[", "2", "]"}]}], "]"}]}], "]"}]}], "]"}],
+       ShowSpecialCharacters->False,
+       ShowStringCharacters->True,
+       NumberMarks->True],
+      FullForm]}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.509033914008944*^9, 3.509033939796769*^9}, 
+   3.509034075634708*^9, {3.509034236605599*^9, 3.50903429073734*^9}, 
+   3.509034332129788*^9, 3.509034770905314*^9, 3.509034947409124*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1358, 679},
+WindowMargins->{{Automatic, 29}, {Automatic, 0}},
+FrontEndVersion->"8.0 for Mac OS X x86 (32-bit) (November 24, 2010)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 125, 3, 76, "Title"],
+Cell[CellGroupData[{
+Cell[729, 29, 95, 1, 67, "Section"],
+Cell[CellGroupData[{
+Cell[849, 34, 3033, 66, 84, "Input"],
+Cell[3885, 102, 2320, 37, 30, "Message"],
+Cell[6208, 141, 33516, 875, 309, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

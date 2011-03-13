@@ -1,0 +1,8 @@
+Ordinal Arithmetic Package for Mathematica
+
+Started Mar 13, 2011 by Lucas Garron
+
+
+Currently in notebook development. Eventual goal is to have a .m file that can handle full arithmetic in Cantor normal form.
+
+A lot of definitions are still incomplete (i.e. missing cases). Arithmetic may fail, crash, enter infinite recursion, or do any of a number of things. But if an answer is produced, it should be correct.
